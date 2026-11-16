@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>EVEREST Web Design Co.</title>
+  <link rel="preload" as="image" href="Assets/sky.jpg">
+  <link rel="preload" as="image" href="Assets/Everest.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="slide-1">
@@ -65,7 +67,8 @@
     <div id="clouds-layer-1" class="clouds-layer"></div>
 
     <div id="mountain-layer">
-      <img id="mountain-img" src="Assets/Everest.png" alt="Everest" draggable="false">
+      <img id="mountain-img" src="Assets/Everest.png" alt="Everest" draggable="false" loading="eager" decoding="sync">
+      <div id="mountain-darkener"></div>
     </div>
 
     <div id="clouds-layer-2" class="clouds-layer"></div>
@@ -83,8 +86,26 @@
     </div>
 
     <div id="final-section">
-      <h1 class="final-title">Information coming soon!</h1>
-      <p class="final-subtitle">Come back when this is finished, this is a placeholder. Have a wonderful rest of your day!</p>
+      <div class="booking-section">
+        <h2 class="booking-header">How to Book a Redesign</h2>
+        <p class="booking-instructions">
+          Do you think Everest would be a good fit for your business? If so, please fill out the form below and we'll get back to you as soon as possible. We look forward to working with you!
+        </p>
+
+        <form id="redesign-form" class="booking-form-box" target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSclmezSdt4AGPzUa3hrY3C2nGYzvCYpoyxkbPS0GepvGo2JFg/formResponse">
+          <input type="text" name="entry.1282780905" class="booking-input" placeholder="Website Link" required autocomplete="off">
+          
+          <div class="form-input-spacer"></div>
+          
+          <textarea name="entry.1222736678" class="booking-textarea" rows="3" placeholder="Describe your preferred redesign. Leave blank to let us handle it. Even a few words is fine."></textarea>
+          
+          <div class="form-actions">
+            <button type="submit" id="booking-submit-button" class="booking-submit-btn">Submit Request</button>
+            <div id="booking-success-msg" class="booking-success-text">Thank you! Your request has been sent. We'll be in touch soon.</div>
+          </div>
+        </form>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+      </div>
     </div>
   </div>
 
