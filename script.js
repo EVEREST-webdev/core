@@ -131,7 +131,7 @@ function spawnCloud(initial = false) {
   const direction = Math.random() < 0.5 ? 1 : -1;
   const widthVw = 32 + Math.random() * 22;
   const widthPx = (window.innerWidth * widthVw) / 100;
-  const opacity = isFirefox ? (0.28 + Math.random() * 0.22) : (0.16 + Math.random() * 0.16);
+  const opacity = isFirefox ? (0.28 + Math.random() * 0.22) : (0.11 + Math.random() * 0.11);
   const speed = 10 + Math.random() * 16;
 
   const maxTop = (currentSlide >= 2 && currentSlide <= 4) ? 0.58 : 0.42;

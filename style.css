@@ -515,11 +515,11 @@ body.slide-6 .clouds-layer {
 
 @supports not (-moz-appearance: none) {
   .clouds-layer {
-    opacity: 0.75;
+    opacity: 0.60;
   }
   body.slide-5 .clouds-layer,
   body.slide-6 .clouds-layer {
-    opacity: 0.62;
+    opacity: 0.48;
   }
 }
 
@@ -668,12 +668,12 @@ body.slide-1 #continue-hint {
 #progress-dots {
   position: absolute;
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 12px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
