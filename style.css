@@ -71,7 +71,7 @@
 }
 
 :root {
-  --mountain-shift: 39.5vh;
+  --mountain-shift: 426.6px;
 }
 
 * {
@@ -108,10 +108,10 @@ html, body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: max(100vh, 1080px);
   background-image: url('Assets/sky.jpg');
   background-size: cover;
-  background-position: center bottom;
+  background-position: center top;
   background-repeat: no-repeat;
   z-index: 10;
 }
@@ -501,7 +501,7 @@ body.slide-6 #text-block-3 {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: max(100vh, 1080px);
   pointer-events: none;
   overflow: hidden;
   opacity: 1;
@@ -513,6 +513,16 @@ body.slide-6 .clouds-layer {
   opacity: 0.85;
 }
 
+@supports not (-moz-appearance: none) {
+  .clouds-layer {
+    opacity: 0.75;
+  }
+  body.slide-5 .clouds-layer,
+  body.slide-6 .clouds-layer {
+    opacity: 0.62;
+  }
+}
+
 #clouds-layer-1 {
   z-index: 30;
 }
@@ -520,11 +530,11 @@ body.slide-6 .clouds-layer {
 body.slide-2 #clouds-layer-1,
 body.slide-3 #clouds-layer-1,
 body.slide-4 #clouds-layer-1 {
-  transform: translateY(calc(var(--mountain-shift, 39.5vh) * 0.75));
+  transform: translateY(calc(var(--mountain-shift, 426.6px) * 0.75));
 }
 
 body.slide-5 #clouds-layer-1 {
-  transform: translateY(calc(19vh * 0.75));
+  transform: translateY(calc(205.2px * 0.75));
 }
 
 body.slide-6 #clouds-layer-1 {
@@ -536,7 +546,7 @@ body.slide-6 #clouds-layer-1 {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: max(100vh, 1080px);
   z-index: 40;
   pointer-events: none;
   transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -544,9 +554,10 @@ body.slide-6 #clouds-layer-1 {
 
 #mountain-img {
   width: 100vw;
-  height: 100vh;
+  height: max(100vh, calc(100vw * 1080 / 1920));
+  min-height: 1080px;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center top;
   display: block;
   pointer-events: none;
   filter: brightness(1) contrast(1) saturate(1);
@@ -556,7 +567,7 @@ body.slide-6 #clouds-layer-1 {
 body.slide-2 #mountain-layer,
 body.slide-3 #mountain-layer,
 body.slide-4 #mountain-layer {
-  transform: translateY(var(--mountain-shift, 39.5vh));
+  transform: translateY(var(--mountain-shift, 426.6px));
 }
 
 body.slide-2 #mountain-img,
@@ -566,7 +577,7 @@ body.slide-4 #mountain-img {
 }
 
 body.slide-5 #mountain-layer {
-  transform: translateY(19vh);
+  transform: translateY(205.2px);
 }
 
 body.slide-6 #mountain-layer {
@@ -585,11 +596,11 @@ body.slide-6 #mountain-img {
 body.slide-2 #clouds-layer-2,
 body.slide-3 #clouds-layer-2,
 body.slide-4 #clouds-layer-2 {
-  transform: translateY(calc(var(--mountain-shift, 39.5vh) * 1.16));
+  transform: translateY(calc(var(--mountain-shift, 426.6px) * 1.16));
 }
 
 body.slide-5 #clouds-layer-2 {
-  transform: translateY(calc(19vh * 1.16));
+  transform: translateY(calc(205.2px * 1.16));
 }
 
 body.slide-6 #clouds-layer-2 {
@@ -600,7 +611,6 @@ body.slide-6 #clouds-layer-2 {
   position: absolute;
   pointer-events: none;
   user-select: none;
-  will-change: transform;
 }
 
 @keyframes slowColorFlash {
@@ -618,12 +628,11 @@ body.slide-6 #clouds-layer-2 {
 
 #bottom-bar {
   position: fixed;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 34px;
+  left: 20vw;
+  width: 60vw;
+  height: 52px;
   z-index: 45;
-  width: 100vw;
-  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -633,11 +642,14 @@ body.slide-6 #clouds-layer-2 {
 
 #continue-hint {
   position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
   font-family: 'The Seasons Bold', 'The Seasons', serif;
   font-weight: 700;
-  font-size: 22px;
+  font-size: clamp(26px, 2.05vw, 40px);
   letter-spacing: 0.04em;
   color: #ffffff;
   mix-blend-mode: difference;
@@ -655,12 +667,13 @@ body.slide-1 #continue-hint {
 
 #progress-dots {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  justify-content: space-between;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -675,8 +688,8 @@ body.slide-4 #progress-dots {
 
 .progress-dot {
   display: inline-block;
-  height: 10px;
-  width: 10px;
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.28);
   cursor: pointer;
@@ -688,18 +701,21 @@ body.slide-2 .progress-dot:nth-child(2),
 body.slide-3 .progress-dot:nth-child(3),
 body.slide-4 .progress-dot:nth-child(4),
 body.slide-5 .progress-dot:nth-child(5) {
-  width: 32px;
+  width: 80px;
   border-radius: 999px;
   background: #ffffff;
 }
 
 #interested-hint {
   position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
   font-family: 'The Seasons Bold', 'The Seasons', serif;
   font-weight: 700;
-  font-size: 22px;
+  font-size: clamp(26px, 2.05vw, 40px);
   letter-spacing: 0.04em;
   color: #ffffff;
   mix-blend-mode: difference;

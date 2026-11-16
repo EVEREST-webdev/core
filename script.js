@@ -3,6 +3,8 @@ const cloudTextures = Array.from({ length: 100 }, (_, i) => {
   return `Assets/Resource Boy - Cloud Textures/${num}.png`;
 });
 
+const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+
 let currentSlide = 1;
 let targetCarouselOffset = 0;
 let currentCarouselOffset = 0;
@@ -129,7 +131,7 @@ function spawnCloud(initial = false) {
   const direction = Math.random() < 0.5 ? 1 : -1;
   const widthVw = 32 + Math.random() * 22;
   const widthPx = (window.innerWidth * widthVw) / 100;
-  const opacity = 0.28 + Math.random() * 0.24;
+  const opacity = isFirefox ? (0.28 + Math.random() * 0.22) : (0.16 + Math.random() * 0.16);
   const speed = 10 + Math.random() * 16;
 
   const maxTop = (currentSlide >= 2 && currentSlide <= 4) ? 0.58 : 0.42;
