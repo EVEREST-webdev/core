@@ -14,7 +14,7 @@
     <div id="sky-darkener"></div>
     <div id="scene-dimmer"></div>
 
-    <div id="thank-you-title">Thank you for choosing</div>
+    <div id="thank-you-title">Thank you for considering</div>
 
     <div id="brand-group">
       <div id="brand-title">
@@ -32,25 +32,16 @@
     </div>
 
     <div id="text-block-1" class="carousel-block">
-      <h2 class="carousel-heading">WHAT WE DO</h2>
-      <p class="carousel-body">
-        Our mission is to get local businesses on the<br>
-        radar by creating unique, eye-catching<br>
-        webpages tailored specifically to their brand.
+      <h2 class="carousel-heading">WHAT & WHY WE DO IT</h2>
+      <p class="carousel-body combined-body">
+        Our mission is to get local businesses on the radar by creating unique, eye-catching webpages tailored specifically to their brand.
+      </p>
+      <p class="carousel-body combined-body secondary-body">
+        Online presence is more important than ever, and the masses' change to online shopping means that if a webpage isn't beautiful, easy to navigate, and useful, customers will click off and go to a competitor.
       </p>
     </div>
 
     <div id="text-block-2" class="carousel-block">
-      <h2 class="carousel-heading">WHY WE DO IT</h2>
-      <p class="carousel-body">
-        Online presence is more important than ever, and<br>
-        the masses' change to online shopping means that if<br>
-        a webpage isn't beautiful, easy to navigate, and useful,<br>
-        customers will click off and go to a competitor.
-      </p>
-    </div>
-
-    <div id="text-block-3" class="carousel-block">
       <h2 class="carousel-heading">WHAT WE REQUEST</h2>
       <p class="request-intro">
         Everest is a non-profit, which means you don't have to pay us for our work.<br>
@@ -68,7 +59,6 @@
 
     <div id="mountain-layer">
       <img id="mountain-img" src="Assets/Everest.png" alt="Everest" draggable="false" loading="eager" decoding="sync">
-      <div id="mountain-darkener"></div>
     </div>
 
     <div id="clouds-layer-2" class="clouds-layer"></div>
@@ -80,29 +70,144 @@
         <span class="progress-dot" data-slide="2"></span>
         <span class="progress-dot" data-slide="3"></span>
         <span class="progress-dot" data-slide="4"></span>
-        <span class="progress-dot" data-slide="5"></span>
       </div>
-      <div id="interested-hint" class="flashing-text">Interested in booking a design? Scroll for more information.</div>
+      <div id="interested-hint" class="flashing-text">Interested? Scroll for more information.</div>
     </div>
 
     <div id="final-section">
-      <div class="booking-section">
-        <h2 class="booking-header">How to Book a Redesign</h2>
-        <p class="booking-instructions">
-          Do you think Everest would be a good fit for your business? If so, please fill out the form below and we'll get back to you as soon as possible. We look forward to working with you!
-        </p>
+      <div id="questionnaire-main-view">
+        <div class="questionnaire-header-block">
+          <h2 class="booking-header">Configure your redesign with Everest</h2>
+          <p class="booking-instructions">Answer this quick questionnaire to let us help you the best we can.</p>
+        </div>
 
-        <form id="redesign-form" class="booking-form-box" target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSclmezSdt4AGPzUa3hrY3C2nGYzvCYpoyxkbPS0GepvGo2JFg/formResponse">
-          <input type="text" name="entry.1282780905" class="booking-input" placeholder="Website Link" required autocomplete="off">
-          
-          <div class="form-input-spacer"></div>
-          
-          <textarea name="entry.1222736678" class="booking-textarea" rows="3" placeholder="Describe your preferred redesign. Leave blank to let us handle it. Even a few words is fine."></textarea>
-          
-          <div class="form-actions">
-            <button type="submit" id="booking-submit-button" class="booking-submit-btn">Submit Request</button>
-            <div id="booking-success-msg" class="booking-success-text">Thank you! Your request has been sent. We'll be in touch soon.</div>
-          </div>
+        <div class="questionnaire-content-wrap">
+          <form id="redesign-form" target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSclmezSdt4AGPzUa3hrY3C2nGYzvCYpoyxkbPS0GepvGo2JFg/formResponse">
+            <input type="hidden" name="fvv" value="1">
+            <input type="hidden" name="pageHistory" id="page-history-input" value="0,1">
+            <input type="hidden" name="fbzx" value="7304130523885619256">
+            
+            <div id="q-step-1" class="question-step active">
+              <div class="field-row">
+                <label class="field-label" for="user-email-input">
+                  Enter your email so we can contact you
+                  <img src="Assets/asterisk.svg" class="required-asterisk" id="email-asterisk" alt="Required">
+                </label>
+                <input type="email" id="user-email-input" name="entry.1263357447" class="translucent-input email-input-field" placeholder="yourname@company.com" required autocomplete="email">
+              </div>
+
+              <div class="field-row">
+                <div class="question-title">
+                  Do you have a website for your business?
+                  <img src="Assets/asterisk.svg" class="required-asterisk" id="website-asterisk" alt="Required">
+                </div>
+                
+                <div class="choices-stack">
+                  <div class="choice-interactive-row" id="yes-choice-row">
+                    <div class="mc-option-row" id="yes-mc-row">
+                      <span class="mc-dot" id="yes-dot"></span>
+                      <span class="mc-label-text">Yes</span>
+                    </div>
+                    <input type="text" id="website-link-input" name="entry.1282780905.other_option_response" class="translucent-input inline-text-box" placeholder="Paste your company's website's link here" autocomplete="off">
+                    <input type="hidden" id="entry-1282780905-other" name="entry.1282780905" value="__other_option__" disabled>
+                  </div>
+
+                  <div class="choice-interactive-row" id="no-choice-row">
+                    <div class="mc-option-row" id="no-mc-row">
+                      <span class="mc-dot" id="no-dot"></span>
+                      <span class="mc-label-text">No</span>
+                    </div>
+                    <span id="no-helper-text" class="helper-text-line">That's totally fine! We still have options for you.</span>
+                    <input type="hidden" id="entry-1282780905-no" name="entry.1282780905" value="No" disabled>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-nav-bar">
+                <button type="button" id="back-to-slide4-btn" class="step-btn back-btn">Back</button>
+                <button type="button" id="next-step-button" class="step-btn forward-btn">Next</button>
+              </div>
+            </div>
+
+            <div id="q-step-2-has-site" class="question-step">
+              <div class="field-row">
+                <div class="question-title">
+                  How would you like to redesign your website?
+                  <img src="Assets/asterisk.svg" class="required-asterisk" id="redesign-asterisk" alt="Required">
+                </div>
+
+                <div class="choices-stack">
+                  <div class="choice-interactive-block" id="custom-redesign-choice-block">
+                    <div class="mc-option-row" id="custom-redesign-mc-row">
+                      <span class="mc-dot" id="custom-redesign-dot"></span>
+                      <span class="mc-label-text">Describe your preferred redesign:</span>
+                    </div>
+                    <textarea id="redesign-desc-input" name="entry.1222736678.other_option_response" class="translucent-input textarea-box" rows="2" placeholder="Type as much as you want"></textarea>
+                    <input type="hidden" id="entry-1222736678-other" name="entry.1222736678" value="__other_option__" disabled>
+                  </div>
+
+                  <div class="choice-interactive-row" id="preset-redesign-choice-row">
+                    <div class="mc-option-row" id="preset-redesign-mc-row">
+                      <span class="mc-dot" id="preset-redesign-dot"></span>
+                      <span class="mc-label-text">Let us handle the redesign</span>
+                    </div>
+                    <input type="hidden" id="entry-1222736678-preset" name="entry.1222736678" value="Let us handle the redesign" disabled>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-nav-bar">
+                <button type="button" id="back-to-step1-from-has-btn" class="step-btn back-btn">Back</button>
+                <button type="submit" id="submit-button-has-site" class="step-btn forward-btn">Submit Request</button>
+              </div>
+            </div>
+
+            <div id="q-step-2-no-site" class="question-step">
+              <div class="field-row">
+                <div class="question-title">
+                  Would you like to buy a domain (webpage link) yourself or would you be fine using a free one?
+                  <img src="Assets/asterisk.svg" class="required-asterisk" id="domain-asterisk" alt="Required">
+                </div>
+                <div class="question-subtitle">Examples: bobsgardening.com is PAID, bobsgardening.github.io/plants is FREE. Pricing for these domains is relatively inexpensive, but it's your choice.</div>
+
+                <div class="choices-stack">
+                  <div class="choice-interactive-row" id="free-domain-choice-row">
+                    <div class="mc-option-row" id="free-domain-mc-row">
+                      <span class="mc-dot" id="free-domain-dot"></span>
+                      <span class="mc-label-text">Use a free one (we provide it)</span>
+                    </div>
+                    <input type="hidden" id="entry-1830002899-free" name="entry.1830002899" value="Use a free one (we provide it)" disabled>
+                  </div>
+
+                  <div class="choice-interactive-row" id="buy-domain-choice-row">
+                    <div class="mc-option-row" id="buy-domain-mc-row">
+                      <span class="mc-dot" id="buy-domain-dot"></span>
+                      <span class="mc-label-text">Buy a domain</span>
+                    </div>
+                    <input type="text" id="domain-link-input" name="entry.1830002899.other_option_response" class="translucent-input inline-text-box" placeholder="Enter desired domain name here" autocomplete="off">
+                    <input type="hidden" id="entry-1830002899-buy" name="entry.1830002899" value="__other_option__" disabled>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-nav-bar">
+                <button type="button" id="back-to-step1-from-no-btn" class="step-btn back-btn">Back</button>
+                <button type="submit" id="submit-button-no-site" class="step-btn forward-btn">Submit Request</button>
+              </div>
+            </div>
+
+          </form>
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+        </div>
+      </div>
+
+      <div id="submission-confirmation">
+        <h2 class="confirmation-title">Thank you for submitting!</h2>
+        <p class="confirmation-subtitle">We'll be in touch as soon as possible for your redesign. We look forward to working with you!</p>
+        <button type="button" id="reset-questionnaire-btn" class="reset-link-btn">Reset questionnaire</button>
+      </div>
+    </div>
+
         </form>
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
       </div>
