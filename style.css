@@ -492,7 +492,7 @@ body.slide-5 #text-block-2 {
 
 body.slide-4 .clouds-layer,
 body.slide-5 .clouds-layer {
-  opacity: 0.85;
+  opacity: 0.85 !important;
 }
 
 @supports not (-moz-appearance: none) {
@@ -501,7 +501,7 @@ body.slide-5 .clouds-layer {
   }
   body.slide-4 .clouds-layer,
   body.slide-5 .clouds-layer {
-    opacity: 0.42;
+    opacity: 0.42 !important;
   }
 }
 
@@ -542,19 +542,17 @@ body.slide-5 #clouds-layer-1 {
   display: block;
   pointer-events: none;
   filter: brightness(1);
-  will-change: filter, transform;
-  transform: translateZ(0);
   transition: filter 1.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body.slide-2 #mountain-img,
 body.slide-3 #mountain-img {
-  filter: brightness(0.68);
+  filter: brightness(0.68) !important;
 }
 
 body.slide-4 #mountain-img,
 body.slide-5 #mountain-img {
-  filter: brightness(0.40);
+  filter: brightness(0.40) !important;
 }
 
 body.slide-2 #mountain-layer,
@@ -735,7 +733,6 @@ body.slide-5 #bottom-bar {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity;
 }
 
 #final-section::-webkit-scrollbar {
@@ -951,12 +948,12 @@ body.slide-5 #final-section {
 }
 
 .translucent-input {
-  background: rgba(0, 0, 0, 0.42);
+  background: rgba(0, 0, 0, 0.45);
   border: none;
   outline: none;
   border-radius: calc(12px * var(--ui-scale, 1));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: #ffffff;
   font-family: 'The Seasons Regular', 'The Seasons', serif;
   font-weight: 400;
@@ -1046,9 +1043,9 @@ body.slide-5 #final-section {
 
 .back-btn {
   border: calc(2.5px * var(--ui-scale, 1)) solid rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: #ffffff;
   cursor: pointer;
 }
@@ -1061,9 +1058,9 @@ body.slide-5 #final-section {
 
 .forward-btn {
   border: calc(2.5px * var(--ui-scale, 1)) solid #8a8a8a;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: #8a8a8a;
   cursor: pointer;
 }
@@ -1072,6 +1069,8 @@ body.slide-5 #final-section {
   background: #ffffff;
   border-color: #ffffff;
   color: #03121e;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .forward-btn.ready:hover {

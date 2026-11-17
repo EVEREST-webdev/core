@@ -32,6 +32,7 @@ let lastWheelDir = 0;
 const viewport = document.getElementById('viewport');
 const cloudsLayer1 = document.getElementById('clouds-layer-1');
 const cloudsLayer2 = document.getElementById('clouds-layer-2');
+const mountainImg = document.getElementById('mountain-img');
 const finalSection = document.getElementById('final-section');
 
 function updateScale() {
@@ -75,6 +76,17 @@ function goToSlide(targetSlide, syncScroll = true) {
   const isMobile = document.body.classList.contains('is-mobile');
   const isTablet = document.body.classList.contains('is-tablet');
   document.body.className = `slide-${currentSlide}` + (isMobile ? ' is-mobile' : '') + (isTablet ? ' is-tablet' : '');
+
+  if (mountainImg) {
+    const b = (currentSlide === 1) ? 1 : (currentSlide <= 3 ? 0.68 : 0.40);
+    mountainImg.style.setProperty('filter', `brightness(${b})`, 'important');
+  }
+
+  if (cloudsLayer1 && cloudsLayer2) {
+    const cloudOp = (currentSlide >= 4) ? (isFirefox ? '0.85' : '0.42') : (isFirefox ? '1' : '0.55');
+    cloudsLayer1.style.setProperty('opacity', cloudOp, 'important');
+    cloudsLayer2.style.setProperty('opacity', cloudOp, 'important');
+  }
 
   if (currentSlide <= 2) {
     targetCarouselOffset = 0;
@@ -989,6 +1001,14 @@ function animateClouds(now) {
 }
 
 window.scrollTo(0, 0);
+
+if (mountainImg) {
+  mountainImg.style.setProperty('filter', 'brightness(1)', 'important');
+}
+if (cloudsLayer1 && cloudsLayer2) {
+  cloudsLayer1.style.setProperty('opacity', isFirefox ? '1' : '0.55', 'important');
+  cloudsLayer2.style.setProperty('opacity', isFirefox ? '1' : '0.55', 'important');
+}
 
 requestAnimationFrame((now) => {
   lastFrameTime = now;
