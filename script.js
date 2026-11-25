@@ -47,8 +47,21 @@ function updateScale() {
   document.documentElement.style.setProperty('--ui-scale', scale.toFixed(4));
 }
 
+function updateFullscreenState() {
+  const isFS = Boolean(
+    document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullscreenElement ||
+    (window.matchMedia && window.matchMedia('(display-mode: fullscreen)').matches) ||
+    (window.screen && Math.abs(window.innerHeight - window.screen.height) <= 8)
+  );
+  document.body.classList.toggle('is-fullscreen', isFS);
+}
+
 function updateDeviceMode() {
   updateScale();
+  updateFullscreenState();
 
   const w = window.innerWidth;
   const hasTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
@@ -66,6 +79,9 @@ function updateDeviceMode() {
 
 window.addEventListener('resize', updateDeviceMode);
 window.addEventListener('orientationchange', updateDeviceMode);
+['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'].forEach((ev) => {
+  document.addEventListener(ev, updateDeviceMode);
+});
 updateDeviceMode();
 
 function goToSlide(targetSlide, syncScroll = true) {
@@ -135,6 +151,9 @@ window.addEventListener('wheel', (e) => {
 }, { passive: true });
 
 window.addEventListener('keydown', (e) => {
+  if (e.key === 'F11') {
+    setTimeout(updateDeviceMode, 150);
+  }
   if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT')) {
     return;
   }
