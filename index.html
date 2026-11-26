@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" id="theme-color-meta" content="#5aa9d6">
   <title>EVEREST Web Design Co.</title>
   <link rel="preload" as="image" href="Assets/sky.jpg">
   <link rel="preload" as="image" href="Assets/Everest.png">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body class="slide-1">
   <div id="viewport">
@@ -82,7 +83,7 @@
         </div>
 
         <div class="questionnaire-content-wrap">
-          <form id="redesign-form" target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSclmezSdt4AGPzUa3hrY3C2nGYzvCYpoyxkbPS0GepvGo2JFg/formResponse">
+          <form id="redesign-form" novalidate target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSclmezSdt4AGPzUa3hrY3C2nGYzvCYpoyxkbPS0GepvGo2JFg/formResponse">
             <input type="hidden" name="fvv" value="1">
             <input type="hidden" name="pageHistory" id="page-history-input" value="0,1">
             <input type="hidden" name="fbzx" value="7304130523885619256">
@@ -93,7 +94,7 @@
                   Enter your email so we can contact you
                   <img src="Assets/asterisk.svg" class="required-asterisk" id="email-asterisk" alt="Required">
                 </label>
-                <input type="email" id="user-email-input" name="entry.1263357447" class="translucent-input email-input-field" placeholder="yourname@company.com" required autocomplete="email">
+                <input type="email" id="user-email-input" name="entry.1263357447" class="translucent-input email-input-field" placeholder="yourname@company.com" autocomplete="email">
               </div>
 
               <div class="field-row">
@@ -207,15 +208,194 @@
         <button type="button" id="reset-questionnaire-btn" class="reset-link-btn">Reset questionnaire</button>
       </div>
     </div>
-
-        </form>
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-      </div>
-    </div>
   </div>
 
   <div id="scroll-spacer"></div>
 
-  <script src="script.js?v=3"></script>
+  <div id="mobile-experience" aria-hidden="true">
+    <div id="m-sky-layer"></div>
+    <div id="m-sky-darkener"></div>
+    <div id="m-overscroll-black" aria-hidden="true"></div>
+    <div id="m-scene-dimmer"></div>
+    <div id="m-clouds-layer-1" class="m-clouds-layer"></div>
+    <div id="m-clouds-layer-2" class="m-clouds-layer"></div>
+    <div id="m-header-blur" aria-hidden="true"></div>
+
+    <header id="m-header" role="button" tabindex="0" aria-label="Return to Everest homescreen">
+      <div id="m-brand-title">
+        <span class="m-brand-base">EVEREST</span>
+        <span class="m-brand-glow">EVEREST</span>
+      </div>
+      <div id="m-tagline">Helping others<br>reach their <span class="slogan-italic">peak</span></div>
+      <div id="m-subtitle">Web Design Co.</div>
+    </header>
+
+    <section id="m-intro-stage">
+      <div id="m-intro-mountain-wrap">
+        <img id="m-intro-mountain-img" src="Assets/Everest.png" alt="Everest" draggable="false" loading="eager" decoding="sync">
+      </div>
+      <button type="button" id="m-explore-btn" class="m-pulse-btn">Explore<br>Everest</button>
+    </section>
+
+    <main id="m-scroll-flow">
+      <div id="m-body-content">
+        <section class="m-text-group" id="m-text-group-1">
+          <h2 class="m-section-heading">WHAT &amp; WHY WE DO IT</h2>
+          <p class="m-section-body">
+            Our mission is to get local businesses on the radar by creating unique, eye-catching webpages tailored specifically to their brand.
+          </p>
+          <p class="m-section-body m-section-body-secondary">
+            Online presence is more important than ever, and the masses' change to online shopping means that if a webpage isn't beautiful, easy to navigate, and useful, customers will click off and go to a competitor.
+          </p>
+        </section>
+
+        <section class="m-text-group" id="m-text-group-2">
+          <h2 class="m-section-heading">WHAT WE REQUEST</h2>
+          <p class="m-section-body">
+            Everest is a non-profit, which means you don't have to pay us for our work.<br>
+            Instead, we humbly request a few non-monetary things of you:
+          </p>
+          <ul class="m-request-list">
+            <li>One recorded video testimonial discussing your experience.</li>
+            <li>One or more LinkedIn recommendation(s) for Everest.</li>
+            <li>At least one warm referral to another business owner who may benefit from our services.</li>
+            <li>Permission for Everest to showcase the completed website in its portfolio.</li>
+          </ul>
+        </section>
+      </div>
+
+      <section id="m-bottom-stage">
+        <div id="m-bottom-hero">
+          <div id="m-thank-you-text">Thank you for considering</div>
+          <div id="m-bottom-everest-wrap">
+            <div id="m-bottom-everest">EVEREST</div>
+            <div id="m-bottom-mountain-wrap">
+              <img id="m-bottom-mountain-img" src="Assets/Everest.png" alt="Everest" draggable="false" loading="eager" decoding="sync">
+            </div>
+          </div>
+        </div>
+        <button type="button" id="m-interested-btn" class="m-pulse-btn">I'm interested!</button>
+      </section>
+    </main>
+
+    <section id="m-survey-stage" aria-hidden="true">
+      <div id="m-survey-top-back" role="button" tabindex="0" aria-label="Return to Everest"></div>
+      <div id="m-survey-main">
+        <h2 id="m-survey-header">Configure your redesign</h2>
+
+        <form id="m-redesign-form" novalidate target="hidden_iframe" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSclmezSdt4AGPzUa3hrY3C2nGYzvCYpoyxkbPS0GepvGo2JFg/formResponse">
+          <input type="hidden" name="fvv" value="1">
+          <input type="hidden" name="pageHistory" id="m-page-history-input" value="0,1">
+          <input type="hidden" name="fbzx" value="7304130523885619256">
+
+          <div id="m-survey-step1" class="m-survey-block">
+            <div class="field-row">
+              <label class="field-label" for="m-user-email-input">
+                Enter your email so we can contact you
+                <img src="Assets/asterisk.svg" class="required-asterisk" id="m-email-asterisk" alt="Required">
+              </label>
+              <input type="email" id="m-user-email-input" name="entry.1263357447" class="translucent-input email-input-field" placeholder="yourname@company.com" autocomplete="email">
+            </div>
+
+            <div class="field-row">
+              <div class="question-title">
+                Do you have a website for your business?
+                <img src="Assets/asterisk.svg" class="required-asterisk" id="m-website-asterisk" alt="Required">
+              </div>
+
+              <div class="choices-stack">
+                <div class="choice-interactive-row" id="m-yes-choice-row">
+                  <div class="mc-option-row" id="m-yes-mc-row">
+                    <span class="mc-dot" id="m-yes-dot"></span>
+                    <span class="mc-label-text">Yes</span>
+                  </div>
+                  <input type="text" id="m-website-link-input" name="entry.1282780905.other_option_response" class="translucent-input inline-text-box" placeholder="Paste your company's website's link here" autocomplete="off">
+                  <input type="hidden" id="m-entry-1282780905-other" name="entry.1282780905" value="__other_option__" disabled>
+                </div>
+
+                <div class="choice-interactive-row" id="m-no-choice-row">
+                  <div class="mc-option-row" id="m-no-mc-row">
+                    <span class="mc-dot" id="m-no-dot"></span>
+                    <span class="mc-label-text">No</span>
+                  </div>
+                  <span id="m-no-helper-text" class="helper-text-line">That's totally fine! We still have options for you.</span>
+                  <input type="hidden" id="m-entry-1282780905-no" name="entry.1282780905" value="No" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="m-survey-step2-has-site" class="m-survey-block m-conditional-step">
+            <div class="field-row">
+              <div class="question-title">
+                How would you like to redesign your website?
+                <img src="Assets/asterisk.svg" class="required-asterisk" id="m-redesign-asterisk" alt="Required">
+              </div>
+
+              <div class="choices-stack">
+                <div class="choice-interactive-block" id="m-custom-redesign-choice-block">
+                  <div class="mc-option-row" id="m-custom-redesign-mc-row">
+                    <span class="mc-dot" id="m-custom-redesign-dot"></span>
+                    <span class="mc-label-text">Describe your preferred redesign:</span>
+                  </div>
+                  <textarea id="m-redesign-desc-input" name="entry.1222736678.other_option_response" class="translucent-input textarea-box" rows="2" placeholder="Type as much as you want"></textarea>
+                  <input type="hidden" id="m-entry-1222736678-other" name="entry.1222736678" value="__other_option__" disabled>
+                </div>
+
+                <div class="choice-interactive-row" id="m-preset-redesign-choice-row">
+                  <div class="mc-option-row" id="m-preset-redesign-mc-row">
+                    <span class="mc-dot" id="m-preset-redesign-dot"></span>
+                    <span class="mc-label-text">Let us handle the redesign</span>
+                  </div>
+                  <input type="hidden" id="m-entry-1222736678-preset" name="entry.1222736678" value="Let us handle the redesign" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="m-survey-step2-no-site" class="m-survey-block m-conditional-step">
+            <div class="field-row">
+              <div class="question-title">
+                Would you like to buy a domain (webpage link) yourself or would you be fine using a free one?
+                <img src="Assets/asterisk.svg" class="required-asterisk" id="m-domain-asterisk" alt="Required">
+              </div>
+              <div class="question-subtitle">Examples: bobsgardening.com is PAID, bobsgardening.github.io/plants is FREE. Pricing for these domains is relatively inexpensive, but it's your choice.</div>
+
+              <div class="choices-stack">
+                <div class="choice-interactive-row" id="m-free-domain-choice-row">
+                  <div class="mc-option-row" id="m-free-domain-mc-row">
+                    <span class="mc-dot" id="m-free-domain-dot"></span>
+                    <span class="mc-label-text">Use a free one (we provide it)</span>
+                  </div>
+                  <input type="hidden" id="m-entry-1830002899-free" name="entry.1830002899" value="Use a free one (we provide it)" disabled>
+                </div>
+
+                <div class="choice-interactive-row" id="m-buy-domain-choice-row">
+                  <div class="mc-option-row" id="m-buy-domain-mc-row">
+                    <span class="mc-dot" id="m-buy-domain-dot"></span>
+                    <span class="mc-label-text">Buy a domain</span>
+                  </div>
+                  <input type="text" id="m-domain-link-input" name="entry.1830002899.other_option_response" class="translucent-input inline-text-box" placeholder="Enter desired domain name here" autocomplete="off">
+                  <input type="hidden" id="m-entry-1830002899-buy" name="entry.1830002899" value="__other_option__" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="m-survey-submit-wrap" class="m-survey-block m-conditional-step">
+            <button type="submit" id="m-submit-btn" class="m-submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="m-submission-confirmation">
+        <h2 class="confirmation-title">Thank you for submitting!</h2>
+        <p class="confirmation-subtitle">We'll be in touch as soon as possible for your redesign. We look forward to working with you!</p>
+        <button type="button" id="m-reset-btn" class="reset-link-btn">Reset questionnaire</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js?v=15"></script>
 </body>
 </html>
